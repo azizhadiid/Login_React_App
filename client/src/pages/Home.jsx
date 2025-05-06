@@ -1,6 +1,20 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
 
 const Home = () => {
+    useEffect(() => {
+        const fetchUser = async () => {
+            const token = localStorage.getItem('token')
+            const response = await axios.get('http://localhost:300/auth/home', {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            console.log(response)
+        }
+
+        fetchUser();
+    }, []);
     return (
         <div className=''>
             <p className='text-3xl text-blue-500'>Home</p>

@@ -12,7 +12,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleChanges = (e) => {
-        setValues({ ...values, [e.target.name]: [e.target.value] });
+        setValues({ ...values, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
